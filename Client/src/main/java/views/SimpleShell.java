@@ -9,7 +9,9 @@ import java.util.List;
 
 import controllers.IdController;
 import controllers.MessageController;
+import controllers.ServerController;
 import controllers.TransactionController;
+import models.Id;
 import youareell.YouAreEll;
 
 // Simple Shell is a Console view for youareell.YouAreEll.
@@ -80,6 +82,14 @@ public class SimpleShell {
                     SimpleShell.prettyPrint(results);
                     continue;
                 }
+                if (list.contains("create")) {
+                    //String results = urll.get_ids();
+                    Id idToAdd = new Id(commands[1], commands[2]);
+                    ServerController sc = new ServerController();
+                    sc.idPost(idToAdd);
+                    //SimpleShell.prettyPrint(results);
+                    continue;
+                }
                 // you need to add a bunch more.
 
                 //!! command returns the last command in history
@@ -115,6 +125,8 @@ public class SimpleShell {
             //catch ioexception, output appropriate message, resume waiting for input
             catch (IOException e) {
                 System.out.println("Input Error, Please try again!");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
             // So what, do you suppose, is the meaning of this comment?
             /** The steps are:

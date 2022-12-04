@@ -27,7 +27,7 @@ public class ServerControllerTest {
 
     @Test
     public  void TestPost() throws Exception {
-        Id myId = new Id("Collin", "collin-cleveland");
+        Id myId = new Id("", "very simple");
         System.out.println(myId);
         ServerController sc = new ServerController();
         sc.idPost(myId);

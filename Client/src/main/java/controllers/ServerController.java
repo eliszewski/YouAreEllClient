@@ -18,15 +18,15 @@ import java.util.List;
 public class ServerController {
     private String rootURL = "http://zipcode.rocks:8085";
     private String idURL = "http://zipcode.rocks:8085/ids";
-    //private ServerController svr = new ServerController();
+    private static  ServerController svr = new ServerController();
     private List<Id> ids;
     private List<Message> messages;
 
-    ServerController() {}
+    public ServerController() {}
 
-//    public static shared() {
-//        return svr;
-//    }
+    public static ServerController shared() {
+        return svr;
+    }
 
     // ﷽﷽﷽
 
@@ -75,7 +75,6 @@ public class ServerController {
         try (OutputStream os = connection.getOutputStream()) {
             System.out.println(id);
             byte[] input = id.toString().getBytes(StandardCharsets.UTF_8);
-            System.out.println(Arrays.toString(input));
             os.write(input, 0, input.length);
         }
         StringBuilder response;
@@ -97,4 +96,4 @@ public class ServerController {
 
 }
 
-// ServerController.shared.doGet()
+//ServerController.shared.doGet()

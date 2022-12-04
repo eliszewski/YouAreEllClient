@@ -14,12 +14,12 @@ public class IdController {
         return null;
     }
 
-    public Id postId(Id id) {
+    public Id postId(Id id) throws Exception {
         // create json from id
         // call server, get json result Or error
         // result json to Id obj
-
         return null;
+        //return ServerController.shared().idPost(id);
     }
 
     public Id putId(Id id) {
